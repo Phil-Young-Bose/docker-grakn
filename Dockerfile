@@ -1,10 +1,13 @@
 FROM openjdk:8-jre-alpine
 
-MAINTAINER itzg
+#ORIG: MAINTAINER itzg
+MAINTAINER pwyoung
 
 RUN apk -U add bash
 
-ENV GRAKN_VERSION=0.11.0
+#ENV GRAKN_VERSION=0.11.0
+ARG GRAKN_VERSION=0.16.0
+ENV GRAKN_VERSION "$GRAKN_VERSION"
 
 ADD https://github.com/graknlabs/grakn/releases/download/v${GRAKN_VERSION}/grakn-dist-${GRAKN_VERSION}.tar.gz /tmp
 
